@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,46 +8,60 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 20px;
     }
 
     .container {
+      width: 100%;
+      max-width: 500px;
       text-align: center;
       background: rgba(255, 255, 255, 0.2);
-      padding: 40px 30px;
+      padding: 30px 20px 40px;
       border-radius: 25px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
       backdrop-filter: blur(10px);
-      max-width: 700px;
       position: relative;
     }
 
     h1 {
       color: #c0392b;
-      font-size: 2.6rem;
+      font-size: 2.2rem;
       margin-bottom: 15px;
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #7a1f1f;
       line-height: 1.7;
     }
 
+    .heart {
+      font-size: 3.5rem;
+      animation: beat 1s infinite;
+      margin-bottom: 10px;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* BUTTON AREA */
     .buttons {
       margin-top: 30px;
+      height: 140px;
       position: relative;
-      height: 80px;
     }
 
     button {
-      padding: 14px 32px;
-      font-size: 1.1rem;
+      padding: 14px 28px;
+      font-size: 1.05rem;
       border: none;
       border-radius: 30px;
       cursor: pointer;
@@ -59,33 +73,27 @@
       background: #ff4d6d;
       color: white;
       left: 50%;
+      top: 80px;
       transform: translateX(-50%);
     }
 
     #noBtn {
       background: #f1f1f1;
       color: #555;
-      left: 20%;
+      left: 50%;
+      top: 10px;
+      transform: translateX(-50%);
     }
 
     .note {
-      margin-top: 20px;
+      margin-top: 15px;
       font-style: italic;
       color: #8b0000;
+      min-height: 22px;
     }
 
     .hidden {
       display: none;
-    }
-
-    .heart {
-      font-size: 4rem;
-      animation: beat 1s infinite;
-    }
-
-    @keyframes beat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
     }
   </style>
 </head>
@@ -110,8 +118,8 @@
     </p>
 
     <div class="buttons">
-      <button id="yesBtn">Yes! 💕</button>
       <button id="noBtn">No</button>
+      <button id="yesBtn">Yes! 💕</button>
     </div>
 
     <div class="note" id="note">
@@ -133,6 +141,7 @@
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
     const note = document.getElementById("note");
+    const buttonsBox = document.querySelector(".buttons");
 
     const messages = [
       "Try again 😏",
@@ -142,15 +151,21 @@
       "You know you want to say YES 😘"
     ];
 
-    noBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * 60 + 10;
-      const y = Math.random() * 40 + 10;
+    noBtn.addEventListener("touchstart", moveNo);
+    noBtn.addEventListener("mouseover", moveNo);
 
-      noBtn.style.left = x + "%";
+    function moveNo() {
+      const boxWidth = buttonsBox.clientWidth - noBtn.offsetWidth;
+      const boxHeight = buttonsBox.clientHeight - noBtn.offsetHeight;
+
+      const x = Math.random() * boxWidth;
+      const y = Math.random() * boxHeight;
+
+      noBtn.style.left = x + "px";
       noBtn.style.top = y + "px";
 
       note.textContent = messages[Math.floor(Math.random() * messages.length)];
-    });
+    }
 
     yesBtn.addEventListener("click", () => {
       document.getElementById("main").classList.add("hidden");
