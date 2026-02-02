@@ -2,73 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For You, Aman ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love 💖</title>
+
   <style>
     body {
       margin: 0;
+      padding: 0;
       min-height: 100vh;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      text-align: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
     }
+
     .container {
-      padding: 30px 20px;
-      max-width: 420px;
-      margin: auto;
-    }
-    .card {
-      background: rgba(255,255,255,0.15);
-      padding: 20px;
+      text-align: center;
+      padding: 40px 25px;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.15);
       border-radius: 20px;
-      margin: 20px 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
     }
-    button {
-      padding: 12px 22px;
-      border: none;
-      border-radius: 30px;
-      font-size: 16px;
-      margin: 10px;
-      cursor: pointer;
+
+    .heart {
+      font-size: 4.5rem;
+      animation: beat 1s infinite;
+      margin-bottom: 10px;
     }
-    .yes {
-      background: #ff2f68;
-      color: white;
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
     }
-    .no {
-      background: white;
-      color: #ff2f68;
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 380px;
+      margin-top: 25px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .footer {
+      font-size: 1rem;
+      margin-top: 35px;
+      opacity: 0.95;
     }
   </style>
 </head>
+
 <body>
 
-<div class="container" id="main">
-  <h1>Hey Aman ❤️</h1>
-  <p>
-    From college days to forever feels…  
-    there’s something I need to ask you 🥺
-  </p>
+  <div class="container">
 
-  <div class="card">
-    <h2>Will you be my Valentine? 🌹</h2>
-    <button class="yes" onclick="yesClicked()">YES ❤️</button>
-    <button class="no" onclick="alert('Wrong answer 😌 Try again ❤️')">
-      Hmm 🤔
-    </button>
+    <div class="heart">💗</div>
+
+    <h1>To My Love ❤️</h1>
+
+    <p>
+      Loving you has been one of the most beautiful things in my life.
+      You’re my safe place, my calm in chaos, and the person who understands me
+      even when I don’t say a word.
+      I know I can be a lot—and sometimes annoying—but thank you for being
+      patient with me and for loving me in a way that feels as warm as
+      sunrays in winter.
+      I am grateful for every moment we have shared, and no matter where life
+      takes us, having you by my side makes everything feel right.
+      I love you, always ❤️
+    </p>
+
+    <!-- Replace 'your-photo.jpg' with your image file name -->
+    <img src="your-photo.jpg" alt="Us Together">
+
+    <div class="footer">
+      Happy Valentine’s Day, my love 💕
+    </div>
+
   </div>
-</div>
-
-<script>
-  function yesClicked() {
-    document.getElementById("main").innerHTML = `
-      <h1>YOU SAID YES 😭❤️</h1>
-      <p>You just made me the happiest girl 💖</p>
-      <h2>Happy Valentine’s Day 💕</h2>
-    `;
-  }
-</script>
 
 </body>
 </html>
